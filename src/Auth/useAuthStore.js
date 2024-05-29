@@ -1,7 +1,8 @@
 import { create } from 'zustand';
 import axios from 'axios';
 
-const URL = 'http://localhost:3000';
+// const URL = 'http://localhost:3000';
+const URLRender = 'https://cajero-nestjs.onrender.com'
 
 const useAuthStore = create((set, get) => ({
   userData: null,
@@ -10,7 +11,7 @@ const useAuthStore = create((set, get) => ({
 
   login: async (dni, key) => {
     try {
-      const response = await axios.post(`${URL}/auth/login`, {
+      const response = await axios.post(`${URLRender}/auth/login`, {
         dni: Number(dni),
         key: Number(key),
       });
@@ -25,7 +26,7 @@ const useAuthStore = create((set, get) => ({
   realizarExtraccion: async (id, monto) => {
     try {
       const { userData } = get();
-      const response = await axios.patch(`${URL}/user/extraccion/${id}`, { extraccion: monto }, {
+      const response = await axios.patch(`${URLRender}/user/extraccion/${id}`, { extraccion: monto }, {
         headers: {
           Authorization: `Bearer ${userData.token}`,
         },
@@ -41,7 +42,7 @@ const useAuthStore = create((set, get) => ({
     console.log('entre al consulta saldo auth')
     try {
       const { userData } = get()
-      const response = await axios.get(`${URL}/user/saldo/${id}`, {
+      const response = await axios.get(`${URLRender}/user/saldo/${id}`, {
         headers: {
           Authorization: `Bearer ${userData.token}`,
         },
@@ -57,7 +58,7 @@ const useAuthStore = create((set, get) => ({
   realizarDeposito: async (id, monto) => {
     try {
       const { userData } = get();
-      const response = await axios.patch(`${URL}/user/deposito/${id}`, { deposito: monto }, {
+      const response = await axios.patch(`${URLRender}/user/deposito/${id}`, { deposito: monto }, {
         headers: {
           Authorization: `Bearer ${userData.token}`,
         },
