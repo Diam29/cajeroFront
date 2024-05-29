@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Quicksand", sans-serif;
+}
+
+html,
+body,
+#root {
+    width: 100vw;
+    height: 100vh;
+    background-color: #A9A9A9;
+}
+
+/* 
+.toast {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    background-color: #F5F5F5;
+    color: #091353,
+} */
