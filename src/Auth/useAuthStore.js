@@ -2,7 +2,7 @@ import { create } from 'zustand';
 import axios from 'axios';
 
 // const URL = 'http://localhost:3000';
-const URLRender = 'https://cajero-nestjs.onrender.com'
+const URLRender = `https://cajero-nestjs.onrender.com`
 
 const useAuthStore = create((set, get) => ({
   userData: null,
